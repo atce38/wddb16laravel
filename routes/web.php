@@ -23,5 +23,6 @@ Route::get('/', function () {
 
 Route::get('courses-index',function(){
 
+$abc="Hello World";
    return view('index');
 })->name('public.courses');
