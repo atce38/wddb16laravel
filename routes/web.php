@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,7 @@ Route::get('courses-index',function(){
 
 $abc="Hello World";
    return view('index');
-})->name('public.courses');
+}
+)->name('public.courses');
+
+Route::get('product/{id}/discount/{dis}',[ProductController::class,'viewProduct']);
