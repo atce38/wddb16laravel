@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,6 @@ $abc="Hello World";
 )->name('public.courses');
 
 Route::get('product/{id}/discount/{dis}',[ProductController::class,'viewProduct']);
+
+
+Route::get('slider',[SliderController::class,'index']);
