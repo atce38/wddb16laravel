@@ -33,4 +33,10 @@ $abc="Hello World";
 Route::get('product/{id}/discount/{dis}',[ProductController::class,'viewProduct']);
 
 
-Route::get('slider',[SliderController::class,'index']);
+Route::get('slider',[SliderController::class,'index'])->name('slider.index');
+Route::get('slider/create',[SliderController::class,'create'])->name('slider.create');
+Route::post('slider/store',[SliderController::class,'store'])->name('slider.store');
+
+Route::get('about',function(){
+echo "About US";
+})->name('about');

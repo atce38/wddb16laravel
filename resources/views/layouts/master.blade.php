@@ -30,7 +30,7 @@
                             <li><a class="dropdown-item" href="">Ardiuno</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="">Acout US</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About US</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Contact US</a></li>
                 </ul>
                 <form class="d-flex">

@@ -7,6 +7,28 @@ use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
+    public function create()
+    {
+        return view('slider.create');
+    }
+
+    public function store(Request $request)
+    {
+        $name=$request->name;
+        $father_name=$request->fname;
+        $piture=$request->img;
+
+
+        // $file_name=$piture->getClientOriginalName();
+        $ext=$piture->getClientOriginalExtension();
+        $file_name=time().'.'.$ext;
+
+// return  $file_name;
+$file_path='/assets/';
+        $piture->move(public_path().$file_path,$file_name);
+        echo "<img src='".$file_path.$file_name."'>";
+        // echo $name." ".$father_name;
+    }
     public function index()
     {
         $momna=['https://edu.abidingtech.com/assets/images/slides/48432_EduSlide.png','https://edu.abidingtech.com/assets/images/slides/14229_banner%201.png','https://edu.abidingtech.com/assets/images/slides/AbidingTechComputerEducationslide2.png'];
