@@ -40,3 +40,7 @@ Route::post('slider/store',[SliderController::class,'store'])->name('slider.stor
 Route::get('about',function(){
 echo "About US";
 })->name('about');
+
+
+
+

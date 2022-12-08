@@ -24,7 +24,7 @@ class SliderController extends Controller
         $file_name=time().'.'.$ext;
 
 // return  $file_name;
-$file_path='/assets/';
+        $file_path='/assets/';
         $piture->move(public_path().$file_path,$file_name);
         echo "<img src='".$file_path.$file_name."'>";
         // echo $name." ".$father_name;
