@@ -20,9 +20,15 @@ public function index()
 }
     public function create()
     {
-        return view('product.create');
+        $product=new Product;
+        return view('product.create',compact('product'));
     }
 
+    public function edit($id)
+    {
+        $product=Product::find($id);
+        return view('product.create',compact('product'));
+    }
     public function store(Request $request)
     {
         $data=$request->all();
@@ -40,6 +46,27 @@ public function index()
             Product::create($data);
             return redirect()->route('product.index');
         }
+
+    }
+
+    public function update(Request $request,$id)
+    {
+        $product=Product::find($id);
+        $data=$request->all();
+
+        if($request->has('image'))
+        {
+            $piture=$request->image;
+        // $file_name=$piture->getClientOriginalName();
+             $ext=$piture->getClientOriginalExtension();
+            $file_name=time().'.'.$ext;
+            $file_path='/assets/proucts/';
+            $piture->move(public_path().$file_path,$file_name);
+
+            $data['img']=$file_path.$file_name;
+        }
+        $product->update($data);
+        return redirect()->route('product.index');
 
     }
 }
