@@ -40,7 +40,7 @@
             </div>
         </div>
     </nav>
-
+    @include('../components/messages')
     @yield('kuchb')
 
     <h1>Hello I m Footer</h1>

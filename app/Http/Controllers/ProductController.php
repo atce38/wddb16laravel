@@ -31,7 +31,10 @@ public function index()
     }
     public function store(Request $request)
     {
+        $request->validate(['name'=>'required','price'=>'required|numeric','discount'=>'required'],
+        ['name.required'=>'Please Enter A Valid Name']);
         $data=$request->all();
+        // return $data;
 
         if($request->has('image'))
         {
@@ -44,7 +47,7 @@ public function index()
 
             $data['img']=$file_path.$file_name;
             Product::create($data);
-            return redirect()->route('product.index');
+            return redirect()->route('product.index')->with('success',"Product Create Successfully!");
         }
 
     }
